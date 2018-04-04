@@ -20,11 +20,11 @@
                   <div class="card-body">
                     <h4 class="text-danger text-center mb-0">Вес</h4>
                     <VueSlideBar
-                      v-model="weight"
+                      v-model="sliderWeight.value"
                       :min="1"
                       :max="10"
-                      :processStyle="slider.processStyle"
-                      :lineHeight="slider.lineHeight"
+                      :processStyle="sliderWeight.processStyle"
+                      :lineHeight="sliderWeight.lineHeight"
                       :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }">
                     </VueSlideBar>
                   </div>
@@ -48,6 +48,26 @@
                         </div>
                       </div>
                     </div>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="text-danger text-center mb-0">Проба</h4>
+                    <VueSlideBar
+                      v-model="sliderGoldContent.value"
+                      :data="sliderGoldContent.data"
+                      :range="sliderGoldContent.range"
+                      :min="1"
+                      :max="10"
+                      :processStyle="sliderWeight.processStyle"
+                      :lineHeight="sliderWeight.lineHeight"
+                      :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }">
+                    </VueSlideBar>
                   </div>
                 </div>
               </div>
@@ -97,25 +117,46 @@ export default {
   },
   data () {
     return {
-      weight: 5,
       loanTerm: 31,
-      slider: {
+      sliderWeight: {
+        value: 5,
         lineHeight: 15,
         processStyle: {
           backgroundColor: '#333'
         }
+      },
+      sliderGoldContent: {
+        value: 750,
+        data: [
+          375,
+          500,
+          583,
+          750,
+          850,
+          900,
+          958
+        ],
+        range: [
+          { label: '375' },
+          { label: '500' },
+          { label: '583' },
+          { label: '750' },
+          { label: '850' },
+          { label: '900' },
+          { label: '958' }
+        ]
       }
     }
   },
   computed: {
     dailyPayment() {
-      return this.weight * 1 + parseInt(this.loanTerm)
+      return this.sliderWeight.value * 1 + parseInt(this.loanTerm) + this.sliderGoldContent.value
     },
     total() {
-      return this.weight * 2 + parseInt(this.loanTerm)
+      return this.sliderWeight.value * 2 + parseInt(this.loanTerm) + this.sliderGoldContent.value
     },
     interestRate() {
-      return this.weight * 3 + parseInt(this.loanTerm)
+      return this.sliderWeight.value * 3 + parseInt(this.loanTerm) + this.sliderGoldContent.value
     }
   }
 }

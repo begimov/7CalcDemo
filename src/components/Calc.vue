@@ -55,7 +55,7 @@
                 <div class="card h-100 bg-dark text-white">
                   <div class="card-body">
                     <h5>Ежедневный платёж</h5>
-                    <p class="lead mb-0">34</p>
+                    <p class="lead mb-0">{{ dailyPayment }}</p>
                   </div>
                 </div>
               </div>
@@ -63,7 +63,7 @@
                 <div class="card h-100 bg-primary text-white">
                   <div class="card-body">
                     <h5>Сумма</h5>
-                    <p class="lead mb-0">34</p>
+                    <p class="lead mb-0">{{ total }}</p>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@
                 <div class="card h-100 bg-danger text-white">
                   <div class="card-body">
                     <h5>Процентная ставка</h5>
-                    <p class="lead mb-0">34</p>
+                    <p class="lead mb-0">{{ interestRate }}</p>
                   </div>
                 </div>
               </div>
@@ -101,6 +101,17 @@ export default {
           backgroundColor: '#333'
         }
       }
+    }
+  },
+  computed: {
+    dailyPayment() {
+      return this.weight * 1
+    },
+    total() {
+      return this.weight * 2
+    },
+    interestRate() {
+      return this.weight * 3
     }
   }
 }

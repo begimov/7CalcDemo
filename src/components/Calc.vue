@@ -6,7 +6,7 @@
           <div class="card-body">
 
             <div class="row">
-              <div class="col">
+              <div class="col text-center">
                 <ul class="list-inline">
                   <li class="list-inline-item"><h3><span class="badge badge-danger">Золото</span></h3></li>
                   <li class="list-inline-item"><h3><span class="badge badge-light"><a href="#" @click.prevent>Скупка</a></span></h3></li>
@@ -15,10 +15,10 @@
             </div>
 
             <div class="row mb-2">
-              <div class="col">
-                <div class="card">
+              <div class="col-lg-6">
+                <div class="card h-100">
                   <div class="card-body">
-                    <h4 class="text-danger mb-0">Вес</h4>
+                    <h4 class="text-danger text-center mb-0">Вес</h4>
                     <VueSlideBar
                       v-model="weight"
                       :min="1"
@@ -30,21 +30,24 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="row mb-2">
-              <div class="col">
-                <div class="card">
+              <div class="col-lg-6">
+                <div class="card h-100">
                   <div class="card-body">
-                    <h4 class="text-danger">Срок займа</h4>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="31" v-model="loanTerm">
-                      <label class="form-check-label lead mt-1" for="inlineRadio1">31 день</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="51" v-model="loanTerm">
-                      <label class="form-check-label lead mt-1" for="inlineRadio2">51 день</label>
-                    </div>
+                    <h4 class="text-danger text-center mb-4">Срок займа</h4>
+                    <div class="row">
+                      <div class="col text-center">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="31" v-model="loanTerm">
+                          <label class="form-check-label lead mt-1" for="inlineRadio1">31 день</label>
+                        </div>
+                      </div>
+                      <div class="col text-center">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="51" v-model="loanTerm">
+                          <label class="form-check-label lead mt-1" for="inlineRadio2">51 день</label>
+                        </div>
+                      </div>
+                    </div>                    
                   </div>
                 </div>
               </div>
@@ -55,7 +58,7 @@
                 <div class="card h-100 bg-dark text-white">
                   <div class="card-body">
                     <h5>Ежедневный платёж</h5>
-                    <p class="lead mb-0">{{ dailyPayment }}</p>
+                    <p class="display-4 mb-0">{{ dailyPayment }}</p>
                   </div>
                 </div>
               </div>
@@ -63,7 +66,7 @@
                 <div class="card h-100 bg-primary text-white">
                   <div class="card-body">
                     <h5>Сумма</h5>
-                    <p class="lead mb-0">{{ total }}</p>
+                    <p class="display-4 mb-0">{{ total }}</p>
                   </div>
                 </div>
               </div>
@@ -71,7 +74,7 @@
                 <div class="card h-100 bg-danger text-white">
                   <div class="card-body">
                     <h5>Процентная ставка</h5>
-                    <p class="lead mb-0">{{ interestRate }}</p>
+                    <p class="display-4 mb-0">{{ interestRate }}</p>
                   </div>
                 </div>
               </div>

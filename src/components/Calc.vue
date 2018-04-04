@@ -18,7 +18,15 @@
               <div class="col">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="text-danger">Вес</h4>
+                    <h4 class="text-danger mb-0">Вес</h4>
+                    <VueSlideBar
+                      v-model="weight"
+                      :min="1"
+                      :max="10"
+                      :processStyle="slider.processStyle"
+                      :lineHeight="slider.lineHeight"
+                      :tooltipStyles="{ backgroundColor: 'red', borderColor: 'red' }">
+                    </VueSlideBar>
                   </div>
                 </div>
               </div>
@@ -66,11 +74,22 @@
 </template>
 
 <script>
+import VueSlideBar from 'vue-slide-bar'
+
 export default {
   name: 'Calc',
+  components: {
+    VueSlideBar
+  },
   data () {
     return {
-      //
+      weight: 5,
+      slider: {
+        lineHeight: 15,
+        processStyle: {
+          backgroundColor: '#333'
+        }
+      }
     }
   }
 }

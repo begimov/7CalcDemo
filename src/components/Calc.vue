@@ -37,6 +37,14 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="text-danger">Срок займа</h4>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="form-check-label lead mt-1" for="inlineRadio1">31 день</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                      <label class="form-check-label lead mt-1" for="inlineRadio2">51 день</label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -47,6 +55,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5>Ежедневный платёж</h5>
+                    <p class="lead mb-0">34</p>
                   </div>
                 </div>
               </div>
@@ -54,6 +63,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5>Сумма</h5>
+                    <p class="lead mb-0">34</p>
                   </div>
                 </div>
               </div>
@@ -61,6 +71,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h5>Процентная ставка</h5>
+                    <p class="lead mb-0">34</p>
                   </div>
                 </div>
               </div>

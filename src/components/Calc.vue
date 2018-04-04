@@ -38,11 +38,11 @@
                   <div class="card-body">
                     <h4 class="text-danger">Срок займа</h4>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="31" v-model="loanTerm">
                       <label class="form-check-label lead mt-1" for="inlineRadio1">31 день</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="51" v-model="loanTerm">
                       <label class="form-check-label lead mt-1" for="inlineRadio2">51 день</label>
                     </div>
                   </div>
@@ -95,6 +95,7 @@ export default {
   data () {
     return {
       weight: 5,
+      loanTerm: 31,
       slider: {
         lineHeight: 15,
         processStyle: {
@@ -105,13 +106,13 @@ export default {
   },
   computed: {
     dailyPayment() {
-      return this.weight * 1
+      return this.weight * 1 + parseInt(this.loanTerm)
     },
     total() {
-      return this.weight * 2
+      return this.weight * 2 + parseInt(this.loanTerm)
     },
     interestRate() {
-      return this.weight * 3
+      return this.weight * 3 + parseInt(this.loanTerm)
     }
   }
 }

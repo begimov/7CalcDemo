@@ -21,7 +21,7 @@
                 <transition appear name="weight">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h4 class="text-danger text-center mb-0">Вес, г.</h4>
+                      <h4 class="text-danger text-center mb-0">Вес, гр.</h4>
                       <VueSlideBar
                         v-model="sliderWeight.value"
                         :min="1"
@@ -64,7 +64,7 @@
                 <transition appear name="goldcontent">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="text-danger text-center mb-0">Проба</h4>
+                      <h4 class="text-danger text-center mb-0">Проба / цена за гр.</h4>
                       <VueSlideBar
                         v-model="sliderGoldContent.value"
                         :data="sliderGoldContent.data"
@@ -82,32 +82,45 @@
             </div>
 
             <div class="row my-3">
-              <div class="col-md-4">
-                <transition appear name="dailypayment">
-                  <div class="card h-100 bg-dark text-white">
-                    <div class="card-body">
-                      <h5>Ежедневный платёж, руб.</h5>
-                      <p class="display-4 mb-0">{{ dailyPayment }}</p>
-                    </div>
-                  </div>
-                </transition>
-              </div>
-              <div class="col-md-4">
+              <div class="col-lg-3 col-sm-6 my-1">
                 <transition appear name="total">
                   <div class="card h-100 bg-primary text-white">
-                    <div class="card-body">
-                      <h5>Сумма, руб.</h5>
-                      <p class="display-4 mb-0">{{ total }}</p>
+                    <div class="card-body p-3">
+                      <p class="font-weight-bold">Сумма на руки, руб.</p>
+                      <p class="display-4">{{ total }}</p>
                     </div>
                   </div>
                 </transition>
               </div>
-              <div class="col-md-4">
+              <div class="col-lg-3 col-sm-6 my-1">
                 <transition appear name="interestRate">
-                  <div class="card h-100 bg-danger text-white">
-                    <div class="card-body">
-                      <h5>Процентная ставка</h5>
-                      <p class="display-4 mb-0">{{ interestRate }} %</p>
+                  <div class="card h-100 bg-light">
+                    <div class="card-body p-3">
+                      <p class="font-weight-bold">Процентная ставка</p>
+                      <p class="mb-0 text-danger">С промо-кодом:</p><h2 class="mb-1 font-weight-light text-danger">{{ interestRate.withPromoCode }} %</h2>
+                      <p class="mb-0">Без:</p><h2 class="mb-0 font-weight-light">{{ interestRate.withoutPromoCode }} %</h2>
+                    </div>
+                  </div>
+                </transition>
+              </div>
+              <div class="col-lg-3 col-sm-6 my-1">
+                <transition appear name="dailypayment">
+                  <div class="card h-100 bg-light">
+                    <div class="card-body p-3">
+                      <p class="font-weight-bold">Ежедневный платёж, руб.</p>
+                      <h2 class="mb-0 font-weight-light text-danger">{{ dailyPaymentWithPromoCode }}</h2>
+                      <h2 class="mb-0 font-weight-light">{{ dailyPaymentWithoutPromoCode }}</h2>
+                    </div>
+                  </div>
+                </transition>
+              </div>
+              <div class="col-lg-3 col-sm-6 my-1">
+                <transition appear name="dailypayment">
+                  <div class="card h-100 bg-light">
+                    <div class="card-body p-3">
+                      <p class="font-weight-bold">Сумма процентов на весь срок, руб.</p>
+                      <h2 class="mb-0 font-weight-light text-danger">{{ totalInterestWithPromoCode }}</h2>
+                      <h2 class="mb-0 font-weight-light">{{ totalInterestWithoutPromoCode }}</h2>
                     </div>
                   </div>
                 </transition>
@@ -131,6 +144,10 @@ export default {
   },
   data () {
     return {
+      interestRate: {
+        withoutPromoCode: 0.39,
+        withPromoCode: 0.38
+      },
       loanTerm: 31,
       sliderWeight: {
         value: 5,
@@ -140,15 +157,15 @@ export default {
         }
       },
       sliderGoldContent: {
-        value: 750,
+        value: 1875,
         data: [
-          375,
-          500,
-          583,
-          750,
-          850,
-          900,
-          958
+          930,
+          1250,
+          1465,
+          1875,
+          2125,
+          2250,
+          2395
         ],
         range: [
           { label: '375' },
@@ -163,15 +180,21 @@ export default {
     }
   },
   computed: {
-    dailyPayment() {
-      return this.sliderWeight.value * 1 + parseInt(this.loanTerm) + this.sliderGoldContent.value
-    },
     total() {
-      return this.sliderWeight.value * 2 + parseInt(this.loanTerm) + this.sliderGoldContent.value
+      return this.sliderWeight.value * this.sliderGoldContent.value
     },
-    interestRate() {
-      return this.sliderWeight.value * 3 + parseInt(this.loanTerm) + this.sliderGoldContent.value
-    }
+    dailyPaymentWithPromoCode() {
+      return (this.total * this.interestRate.withPromoCode / this.loanTerm).toFixed(2)
+    },
+    dailyPaymentWithoutPromoCode() {
+      return (this.total * this.interestRate.withoutPromoCode / this.loanTerm).toFixed(2)
+    },
+    totalInterestWithPromoCode() {
+      return (this.total * this.interestRate.withPromoCode).toFixed(2)
+    },
+    totalInterestWithoutPromoCode() {
+      return (this.total * this.interestRate.withoutPromoCode).toFixed(2)
+    },
   }
 }
 </script>

@@ -21,7 +21,7 @@
                 <transition appear name="weight">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h4 class="text-danger text-center mb-0">Вес</h4>
+                      <h4 class="text-danger text-center mb-0">Вес, г.</h4>
                       <VueSlideBar
                         v-model="sliderWeight.value"
                         :min="1"
@@ -86,7 +86,7 @@
                 <transition appear name="dailypayment">
                   <div class="card h-100 bg-dark text-white">
                     <div class="card-body">
-                      <h5>Ежедневный платёж</h5>
+                      <h5>Ежедневный платёж, руб.</h5>
                       <p class="display-4 mb-0">{{ dailyPayment }}</p>
                     </div>
                   </div>
@@ -96,7 +96,7 @@
                 <transition appear name="total">
                   <div class="card h-100 bg-primary text-white">
                     <div class="card-body">
-                      <h5>Сумма</h5>
+                      <h5>Сумма, руб.</h5>
                       <p class="display-4 mb-0">{{ total }}</p>
                     </div>
                   </div>
@@ -107,7 +107,7 @@
                   <div class="card h-100 bg-danger text-white">
                     <div class="card-body">
                       <h5>Процентная ставка</h5>
-                      <p class="display-4 mb-0">{{ interestRate }}</p>
+                      <p class="display-4 mb-0">{{ interestRate }} %</p>
                     </div>
                   </div>
                 </transition>

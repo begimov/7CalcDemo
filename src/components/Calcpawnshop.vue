@@ -93,8 +93,8 @@
           <div class="card h-100 bg-light">
             <div class="card-body p-3">
               <p class="font-weight-bold">Ежедневный платёж, руб.</p>
-              <h2 class="mb-1 font-weight-light text-danger">{{ dailyPaymentWithPromoCode }}</h2>
-              <h2 class="mb-0 font-weight-light">{{ dailyPaymentWithoutPromoCode }}</h2>
+              <p class="mb-0 text-danger"><span class="badge badge-danger">С промо-кодом:</span></p><h2 class="mb-1 font-weight-light text-danger">{{ dailyPaymentWithPromoCode }}</h2>
+              <p class="mb-0"><span class="badge badge-dark">Без промо-кода:</span></p><h2 class="mb-0 font-weight-light">{{ dailyPaymentWithoutPromoCode }}</h2>
             </div>
           </div>
         </transition>
@@ -104,8 +104,8 @@
           <div class="card h-100 bg-light">
             <div class="card-body p-3">
               <p class="font-weight-bold">Сумма процентов на весь срок, руб.</p>
-              <h2 class="mb-1 font-weight-light text-danger">{{ totalInterestWithPromoCode }}</h2>
-              <h2 class="mb-0 font-weight-light">{{ totalInterestWithoutPromoCode }}</h2>
+              <p class="mb-0 text-danger"><span class="badge badge-danger">С промо-кодом:</span></p><h2 class="mb-1 font-weight-light text-danger">{{ totalInterestWithPromoCode }}</h2>
+              <p class="mb-0"><span class="badge badge-dark">Без промо-кода:</span></p><h2 class="mb-0 font-weight-light">{{ totalInterestWithoutPromoCode }}</h2>
             </div>
           </div>
         </transition>

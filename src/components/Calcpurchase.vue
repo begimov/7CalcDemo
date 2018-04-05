@@ -69,8 +69,8 @@
         <transition appear name="dailypayment">
           <div class="card h-100 bg-light">
             <div class="card-body p-3">
-              <p class="font-weight-bold">Стоимость с промокодом, руб.</p>
-              <h2 class="mb-1 font-weight-light text-danger">{{ totalWithPromoCode }}</h2>
+              <p class="font-weight-bold">Стоимость с промо-кодом, руб.</p>
+              <p class="mb-0 text-danger"><span class="badge badge-danger">С промо-кодом:</span></p><h2 class="mb-1 font-weight-light text-danger">{{ totalWithPromoCode }}</h2>
               <!-- <h2 class="mb-0 font-weight-light">{{ totalWithoutPromoCode }}</h2> -->
             </div>
           </div>

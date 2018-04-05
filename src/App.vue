@@ -12,15 +12,27 @@
                   <ul class="list-inline">
                     <li class="list-inline-item">
                       <h3>
-                        <span class="badge badge-danger">
-                          <a href="#" class="text-white" @click.prevent="activeComponent = 'pawnshop'">Золото</a>
+                        <span :class="{
+                            'badge': true, 
+                            'badge-danger': activeComponent == 'pawnshop',
+                            'badge-light': activeComponent == 'purchase'
+                          }">
+                          <a href="#" 
+                            :class="{'text-white': activeComponent == 'pawnshop'}" 
+                            @click.prevent="activeComponent = 'pawnshop'">Золото</a>
                         </span>
                       </h3>
                     </li>
                     <li class="list-inline-item">
                       <h3>
-                        <span class="badge badge-light">
-                          <a href="#" @click.prevent="activeComponent = 'purchase'">Скупка</a>
+                        <span :class="{
+                            'badge': true, 
+                            'badge-danger': activeComponent == 'purchase',
+                            'badge-light': activeComponent == 'pawnshop'
+                          }">
+                          <a href="#" 
+                            :class="{'text-white': activeComponent == 'purchase'}" 
+                            @click.prevent="activeComponent = 'purchase'">Скупка</a>
                         </span>
                       </h3>
                     </li>

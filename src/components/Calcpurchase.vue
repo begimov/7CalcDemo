@@ -160,7 +160,7 @@ export default {
 <style scoped>
 .goldcontent-enter-active,
 .goldcontent-leave-active {
-  transition: opacity 1s .5s;
+  transition: opacity 1s .25s;
 }
 .goldcontent-enter,
 .goldcontent-leave-to {
@@ -169,7 +169,7 @@ export default {
 
 .total-enter-active,
 .total-leave-active {
-  transition: all 1s ease .75s;
+  transition: all 1s ease .5s;
 }
 .total-enter,
 .total-leave-to {
@@ -179,7 +179,7 @@ export default {
 
 .interestRate-enter-active,
 .interestRate-leave-active {
-  transition: all 1s ease 1s;
+  transition: all 1s ease 0.75s;
 }
 .interestRate-enter,
 .interestRate-leave-to {
@@ -189,7 +189,7 @@ export default {
 
 .dailypayment-enter-active,
 .dailypayment-leave-active {
-  transition: all 1s ease 1.25s;
+  transition: all 1s ease 1s;
 }
 .dailypayment-enter,
 .dailypayment-leave-to {
@@ -199,7 +199,7 @@ export default {
 
 .totalinterest-enter-active,
 .totalinterest-leave-active {
-  transition: all 1s ease 1.5s;
+  transition: all 1s ease 1.25s;
 }
 .totalinterest-enter,
 .totalinterest-leave-to {

@@ -41,8 +41,8 @@
               </transition>
             </div>
 
-            <Calcpawnshop v-if="activeComponent == 'pawnshop'"/>
-            <Calcpurchase v-if="activeComponent == 'purchase'"/>
+            <keep-alive><Calcpawnshop v-if="activeComponent == 'pawnshop'"/></keep-alive>
+            <keep-alive><Calcpurchase v-if="activeComponent == 'purchase'"/></keep-alive>
 
           </div>
         </div>

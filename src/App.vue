@@ -30,6 +30,7 @@
             </div>
 
             <Calcpawnshop v-if="activeComponent == 'pawnshop'"/>
+            <Calcpurchase v-if="activeComponent == 'purchase'"/>
 
           </div>
         </div>
@@ -41,11 +42,13 @@
 
 <script>
 import Calcpawnshop from './components/Calcpawnshop'
+import Calcpurchase from './components/Calcpurchase'
 
 export default {
   name: 'App',
   components: {
-    Calcpawnshop
+    Calcpawnshop,
+    Calcpurchase
   },
   data() {
     return {

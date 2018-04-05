@@ -67,20 +67,20 @@
     </div>
 
     <div class="row my-3">
-      <div class="col-lg-3 col-sm-6 my-1">
+      <div class="col-3 my-1 pl-3 pr-1">
         <transition appear name="total">
           <div class="card h-100 bg-primary text-white">
-            <div class="card-body p-3">
+            <div class="card-body p-2">
               <p class="font-weight-bold">Сумма на руки, руб.</p>
-              <p class="display-4">{{ total }}</p>
+              <h1 class="font-weight-light">{{ total }}</h1>
             </div>
           </div>
         </transition>
       </div>
-      <div class="col-lg-3 col-sm-6 my-1">
+      <div class="col-3 my-1 px-1">
         <transition appear name="interestRate">
           <div class="card h-100 bg-light">
-            <div class="card-body p-3">
+            <div class="card-body p-2">
               <p class="font-weight-bold">Процентная ставка</p>
               <p class="mb-0 text-danger"><span class="badge badge-danger">С промо-кодом:</span></p><h2 class="mb-1 font-weight-light text-danger">{{ interestRate.withPromoCode }} %</h2>
               <p class="mb-0"><span class="badge badge-dark">Без промо-кода:</span></p><h2 class="mb-0 font-weight-light">{{ interestRate.withoutPromoCode }} %</h2>
@@ -88,10 +88,10 @@
           </div>
         </transition>
       </div>
-      <div class="col-lg-3 col-sm-6 my-1">
+      <div class="col-3 my-1 px-1">
         <transition appear name="dailypayment">
           <div class="card h-100 bg-light">
-            <div class="card-body p-3">
+            <div class="card-body p-2">
               <p class="font-weight-bold">Ежедневный платёж, руб.</p>
               <p class="mb-0 text-danger"><span class="badge badge-danger">С промо-кодом:</span></p><h2 class="mb-1 font-weight-light text-danger">{{ dailyPaymentWithPromoCode }}</h2>
               <p class="mb-0"><span class="badge badge-dark">Без промо-кода:</span></p><h2 class="mb-0 font-weight-light">{{ dailyPaymentWithoutPromoCode }}</h2>
@@ -99,10 +99,10 @@
           </div>
         </transition>
       </div>
-      <div class="col-lg-3 col-sm-6 my-1">
+      <div class="col-3 my-1 pl-1 pr-3">
         <transition appear name="totalinterest">
           <div class="card h-100 bg-light">
-            <div class="card-body p-3">
+            <div class="card-body p-2">
               <p class="font-weight-bold">Сумма процентов на весь срок, руб.</p>
               <p class="mb-0 text-danger"><span class="badge badge-danger">С промо-кодом:</span></p><h2 class="mb-1 font-weight-light text-danger">{{ totalInterestWithPromoCode }}</h2>
               <p class="mb-0"><span class="badge badge-dark">Без промо-кода:</span></p><h2 class="mb-0 font-weight-light">{{ totalInterestWithoutPromoCode }}</h2>

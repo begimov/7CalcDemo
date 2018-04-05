@@ -44,7 +44,7 @@
     </div>
 
     <div class="row my-3">
-      <div class="col-lg-3 col-sm-6 my-1">
+      <div class="col-md-4 my-1">
         <transition appear name="total">
           <div class="card h-100 bg-primary text-white">
             <div class="card-body p-3">
@@ -54,35 +54,24 @@
           </div>
         </transition>
       </div>
-      <div class="col-lg-3 col-sm-6 my-1">
+      <div class="col-md-4 my-1">
         <transition appear name="interestRate">
           <div class="card h-100 bg-light">
             <div class="card-body p-3">
               <p class="font-weight-bold">Процентная ставка</p>
               <p class="mb-0 text-danger"><span class="badge badge-danger">С промо-кодом:</span></p><h2 class="mb-1 font-weight-light text-danger">{{ interestRate.withPromoCode }} %</h2>
-              <p class="mb-0"><span class="badge badge-dark">Без промо-кода:</span></p><h2 class="mb-0 font-weight-light">{{ interestRate.withoutPromoCode }} %</h2>
+              <!-- <p class="mb-0"><span class="badge badge-dark">Без промо-кода:</span></p><h2 class="mb-0 font-weight-light">{{ interestRate.withoutPromoCode }} %</h2> -->
             </div>
           </div>
         </transition>
       </div>
-      <div class="col-lg-3 col-sm-6 my-1">
+      <div class="col-md-4 my-1">
         <transition appear name="dailypayment">
           <div class="card h-100 bg-light">
             <div class="card-body p-3">
-              <p class="font-weight-bold">Ежедневный платёж, руб.</p>
-              <h2 class="mb-1 font-weight-light text-danger">{{ dailyPaymentWithPromoCode }}</h2>
-              <h2 class="mb-0 font-weight-light">{{ dailyPaymentWithoutPromoCode }}</h2>
-            </div>
-          </div>
-        </transition>
-      </div>
-      <div class="col-lg-3 col-sm-6 my-1">
-        <transition appear name="totalinterest">
-          <div class="card h-100 bg-light">
-            <div class="card-body p-3">
-              <p class="font-weight-bold">Сумма процентов на весь срок, руб.</p>
-              <h2 class="mb-1 font-weight-light text-danger">{{ totalInterestWithPromoCode }}</h2>
-              <h2 class="mb-0 font-weight-light">{{ totalInterestWithoutPromoCode }}</h2>
+              <p class="font-weight-bold">Стоимость с промокодом, руб.</p>
+              <h2 class="mb-1 font-weight-light text-danger">{{ totalWithPromoCode }}</h2>
+              <!-- <h2 class="mb-0 font-weight-light">{{ totalWithoutPromoCode }}</h2> -->
             </div>
           </div>
         </transition>
@@ -95,7 +84,7 @@
 import VueSlideBar from "vue-slide-bar";
 
 export default {
-  name: "Calcpawnshop",
+  name: "Calcpurchase",
   components: {
     VueSlideBar
   },
@@ -105,7 +94,6 @@ export default {
         withoutPromoCode: 0.39,
         withPromoCode: 0.38
       },
-      loanTerm: 31,
       sliderWeight: {
         value: 5,
         lineHeight: 15,
@@ -132,25 +120,19 @@ export default {
     total() {
       return this.sliderWeight.value * this.sliderGoldContent.value;
     },
-    dailyPaymentWithPromoCode() {
+    totalWithPromoCode() {
       return (
-        this.total *
-        this.interestRate.withPromoCode /
-        this.loanTerm
+        this.sliderWeight.value *
+        this.sliderGoldContent.value *
+        this.interestRate.withPromoCode
       ).toFixed(2);
     },
-    dailyPaymentWithoutPromoCode() {
+    totalWithoutPromoCode() {
       return (
-        this.total *
-        this.interestRate.withoutPromoCode /
-        this.loanTerm
+        this.sliderWeight.value *
+        this.sliderGoldContent.value *
+        this.interestRate.withoutPromoCode
       ).toFixed(2);
-    },
-    totalInterestWithPromoCode() {
-      return (this.total * this.interestRate.withPromoCode).toFixed(2);
-    },
-    totalInterestWithoutPromoCode() {
-      return (this.total * this.interestRate.withoutPromoCode).toFixed(2);
     }
   }
 };
@@ -160,7 +142,7 @@ export default {
 <style scoped>
 .goldcontent-enter-active,
 .goldcontent-leave-active {
-  transition: opacity 1s .25s;
+  transition: opacity 1s 0.25s;
 }
 .goldcontent-enter,
 .goldcontent-leave-to {
@@ -169,7 +151,7 @@ export default {
 
 .total-enter-active,
 .total-leave-active {
-  transition: all 1s ease .5s;
+  transition: all 1s ease 0.5s;
 }
 .total-enter,
 .total-leave-to {
@@ -193,16 +175,6 @@ export default {
 }
 .dailypayment-enter,
 .dailypayment-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
-.totalinterest-enter-active,
-.totalinterest-leave-active {
-  transition: all 1s ease 1.25s;
-}
-.totalinterest-enter,
-.totalinterest-leave-to {
   transform: translateX(10px);
   opacity: 0;
 }

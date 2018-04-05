@@ -97,8 +97,8 @@
                   <div class="card h-100 bg-light">
                     <div class="card-body p-3">
                       <p class="font-weight-bold">Процентная ставка</p>
-                      <p class="mb-0 text-danger">С промо-кодом:</p><h2 class="mb-1 font-weight-light text-danger">{{ interestRate.withPromoCode }} %</h2>
-                      <p class="mb-0">Без:</p><h2 class="mb-0 font-weight-light">{{ interestRate.withoutPromoCode }} %</h2>
+                      <p class="mb-0 text-danger"><span class="badge badge-danger">С промо-кодом:</span></p><h2 class="mb-1 font-weight-light text-danger">{{ interestRate.withPromoCode }} %</h2>
+                      <p class="mb-0"><span class="badge badge-dark">Без промо-кода:</span></p><h2 class="mb-0 font-weight-light">{{ interestRate.withoutPromoCode }} %</h2>
                     </div>
                   </div>
                 </transition>
@@ -108,18 +108,18 @@
                   <div class="card h-100 bg-light">
                     <div class="card-body p-3">
                       <p class="font-weight-bold">Ежедневный платёж, руб.</p>
-                      <h2 class="mb-0 font-weight-light text-danger">{{ dailyPaymentWithPromoCode }}</h2>
+                      <h2 class="mb-1 font-weight-light text-danger">{{ dailyPaymentWithPromoCode }}</h2>
                       <h2 class="mb-0 font-weight-light">{{ dailyPaymentWithoutPromoCode }}</h2>
                     </div>
                   </div>
                 </transition>
               </div>
               <div class="col-lg-3 col-sm-6 my-1">
-                <transition appear name="dailypayment">
+                <transition appear name="totalinterest">
                   <div class="card h-100 bg-light">
                     <div class="card-body p-3">
                       <p class="font-weight-bold">Сумма процентов на весь срок, руб.</p>
-                      <h2 class="mb-0 font-weight-light text-danger">{{ totalInterestWithPromoCode }}</h2>
+                      <h2 class="mb-1 font-weight-light text-danger">{{ totalInterestWithPromoCode }}</h2>
                       <h2 class="mb-0 font-weight-light">{{ totalInterestWithoutPromoCode }}</h2>
                     </div>
                   </div>
@@ -222,18 +222,8 @@ export default {
   opacity: 0;
 }
 
-
-.dailypayment-enter-active, .dailypayment-leave-active {
-  transition: all 1.5s ease 1.5s;
-}
-.dailypayment-enter, .dailypayment-leave-to
-/* .slide-fade-leave-active до версии 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
 .total-enter-active, .total-leave-active {
-  transition: all 1.5s ease 2s;
+  transition: all 1.5s ease 1.5s;
 }
 .total-enter, .total-leave-to
 /* .slide-fade-leave-active до версии 2.1.8 */ {
@@ -242,9 +232,27 @@ export default {
 }
 
 .interestRate-enter-active, .interestRate-leave-active {
-  transition: all 1.5s ease 2.5s;
+  transition: all 1.5s ease 2s;
 }
 .interestRate-enter, .interestRate-leave-to
+/* .slide-fade-leave-active до версии 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.dailypayment-enter-active, .dailypayment-leave-active {
+  transition: all 1.5s ease 2.5s;
+}
+.dailypayment-enter, .dailypayment-leave-to
+/* .slide-fade-leave-active до версии 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.totalinterest-enter-active, .totalinterest-leave-active {
+  transition: all 1.5s ease 3s;
+}
+.totalinterest-enter, .totalinterest-leave-to
 /* .slide-fade-leave-active до версии 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
